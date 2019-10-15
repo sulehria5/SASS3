@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+}
+
+@mixin shape-ball($bg-color) {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: $bg-color;
+}
+
+@mixin animation-ball($t) {
+    animation: move $t infinite
+}
+
+@keyframes move {
+    0%,
+    100% {
+        transform: translateX(0)
+    }
+    50% {
+        transform: translateX(calc(100vw - 100px))
+    }
+}
+
+.ball1 {
+    @include shape-ball(red);
+    @include animation-ball(2s)
+}
+
+.ball2 {
+    @include shape-ball(green);
+    @include animation-ball(3s)
+}
+
+.ball3 {
+    @include shape-ball(yellow);
+    @include animation-ball(4s)
+}
